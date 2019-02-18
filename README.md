@@ -29,7 +29,7 @@ Current version ran on CPU. if want to run on GPU and install tensorflow-gpu ver
 ## Overview  
 ### Quick start
 
-User can run test step(step5 and step6) with a little modfication in that script using a pre-trained model.   
+User can run test step(step5 and step6) with a little modfication in below script using a pre-trained model.   
 For instance, change CHECKPOINT_DIR variable to the directory where a pre-trained or user-generated model exists.    
 
 ```bash

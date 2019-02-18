@@ -27,8 +27,6 @@ set -e
 # Where the checkpoint and logs will be saved to.
 TRAIN_DIR='./data/1-nuclei/models/nucleui-models2'
 DATASET_DIR='./data/1-nuclei/images'
-CHECKPOINT_DIR='./data/1-nuclei/models/nucleui-models2/model.ckpt-7745'
-EVAL_DIR='./data/1-nuclei/models/nucleui-models2/eval/'
 
 python step4_train_image_classifier.py \
   --train_dir=${TRAIN_DIR} \
