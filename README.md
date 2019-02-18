@@ -29,7 +29,9 @@ Current version ran on CPU. if want to run on GPU and install tensorflow-gpu ver
 ## Overview  
 ### Quick start
 
-This script executes train, evalution and segmenation step.
+This script includes train, evalution and segmenation step.
+Also, user can use sample command-line in that script.
+
 ```bash
    cd DEEP_TUTORIAL_ROOT
    ./train_nucleui.sh
