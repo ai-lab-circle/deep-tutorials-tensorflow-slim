@@ -73,7 +73,7 @@ For step6 segmentation, original image is on [here](http://andrewjanowczyk.com/w
    cd DEEP_TUTORIAL_ROOT/
    step1_patch_extraction.py (not recommended!. use original patch extraction matlab code)
    step2_cross_validation_creation.py 
-   step3_generate_datasets (make tensorflow-slim data format 
+   step3_generate_datasets 
    step4_train_image_classifier.py 
    step5_eval_image_classifier.py 
 ```
@@ -81,7 +81,7 @@ For step6 segmentation, original image is on [here](http://andrewjanowczyk.com/w
 ### Segmentation
 ```bash
    cd DEEP_TUTORIAL_ROOT/
-   step6_segment_test_images.py (segmentation for test image)
+   step6_segment_test_images.py 
 ```
 
 ### Output generation time
