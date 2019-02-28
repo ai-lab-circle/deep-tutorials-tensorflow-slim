@@ -29,14 +29,14 @@ def nuclei(images, num_classes=2, is_training=False,
              dropout_keep_prob=0.5,
              prediction_fn=slim.softmax,
              scope='nuclei'):
-  """Creates a variant of the CifarNet model.
+  """Creates a variant of the nuclei model.
 
   Note that since the output is a set of 'logits', the values fall in the
   interval of (-infinity, infinity). Consequently, to convert the outputs to a
   probability distribution over the characters, one will need to convert them
   using the softmax function:
 
-        logits = cifarnet.cifarnet(images, is_training=False)
+        logits = nuclei.nuclei(images, is_training=False)
         probabilities = tf.nn.softmax(logits)
         predictions = tf.argmax(logits, 1)
 
