@@ -4,6 +4,7 @@ This source is tensorflow version of [1].
 We used tensorflow-slim and implemented on ubuntu 16.04, python3.5, and tensorflow1.13.0rc1.  
 
 
+
 ## NOTE
 
 To extract nuclei and non-nuclei patch, we used original matlab patch extraction code[3]   
@@ -54,12 +55,6 @@ URL_PASSWORD: 1234
    mv DOWNLOAD_DIR/nuclei* ./
 ```
 
-### Pre-trained model
-Download [model(nucleui-models2.zip)](http://naver.me/Fyamxy1v) 
-```bash
-   cd DEEP_TUTORIAL_ROOT/data/1-nuclei/models
-   unzip nucleui-models2.zip
-```
 
 For step6 segmentation, original image is on [here](http://andrewjanowczyk.com/wp-static/nuclei.tgz)
  
