@@ -23,6 +23,9 @@ import traceback
 
 import tensorflow as tf
 import time
+from PIL import Image
+import numpy
+import cv2
 
 #for one image test
 singe_image_test = '12751'
@@ -42,7 +45,7 @@ FLAGS = tf.app.flags.FLAGS
 
 slim = tf.contrib.slim
 
-model_name_to_variables = {'nuclei':'nuclei',
+model_name_to_variables = {'cifarnet':'CifarNet','cifarnet2':'CifarNet2', 'nuclei2':'nuclei2','nuclei':'nuclei',
                            'inception_v3':'InceptionV3', 'inception_v4':'InceptionV4', 'resnet_v1_50':'resnet_v1_50', 'resnet_v1_152':'resnet_v1_152'}
 
 preprocessing_name = FLAGS.preprocessing_name or FLAGS.model_name
@@ -107,11 +110,22 @@ def main(_):
   start_time = time.time()
   start_time_iter = 0
 
-  base_path = './data/1-nuclei/images/original_images/'
-  OUTPUT_DIR = './data/1-nuclei/images/fold_1'
+  base_path = './data/1-nuclei/original_images/'
+  OUTPUT_DIR = './data/1-nuclei/fold_1/'
   fls.append(singe_image_test)
+
+
+  if not os.path.exists(OUTPUT_DIR):
+    os.mkdir(OUTPUT_DIR)
+
+
+  if not os.path.exists(base_path):
+    tf.logging.error('original image folder not exits!')
+
+
   for fl in fls:
     #image_name = None
+    #print(fl)
 
     try:
       if FLAGS.tfrecord is False:
@@ -125,6 +139,10 @@ def main(_):
         ori_img_list = sorted(glob.glob("%s%s_*.tif" % (base_path, fl)))
         #print('ori :' + ori_img_list)
         for fname in ori_img_list:  # get all of the files which start with this patient ID
+
+          start_time_per_img = time.time()
+
+
           print('fname: ' + fname)
 
           ori_fname = fname
@@ -141,9 +159,7 @@ def main(_):
 
          
  
-          from PIL import Image
-          import numpy
-          import cv2
+          
           #image = Image.open(ori_fname)
 
           #from scipy.ndimage import imread
@@ -160,12 +176,16 @@ def main(_):
           outputimage_probs = np.zeros(
             shape=(image.shape[0], image.shape[1], 3))  # make the output files where we'll store the data
           outputimage_class = np.zeros(shape=(image.shape[0], image.shape[1]))
+
+
+          
           for rowi in range(hwsize + 1, image.shape[0] - hwsize):
+            #if rowi > 20:
+            #  break
             print("%s\t (%.3f,%.3f)\t %d of %d" % (
               ori_fname, time.time() - start_time, time.time() - start_time_iter, rowi, image.shape[0] - hwsize))
             start_time_iter = time.time()
             #patches = []  # create a set of patches, oeprate on a per column basis
-
             probs = []
             index = 0
             for coli in range(hwsize + 1, image.shape[1] - hwsize):
@@ -188,7 +208,7 @@ def main(_):
           scipy.misc.imsave(newfname_prob, outputimage_probs)  # save the files
           scipy.misc.imsave(newfname_class, outputimage_class)
 
-
+          print("---%s seconds --- " % (time.time()  -start_time_per_img))
       else:
         example = tf.train.Example()
         example.ParseFromString(fl)
