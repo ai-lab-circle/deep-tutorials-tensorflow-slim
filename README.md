@@ -7,9 +7,17 @@ We used tensorflow-slim and implemented on ubuntu 16.04, python3.5, and tensorfl
 
 ## NOTE
 
-To extract nuclei and non-nuclei patch, we used original matlab patch extraction code[3]   
+1) To extract nuclei and non-nuclei patch, we used original matlab patch extraction code[3]   
 because converted python code[1] decreased segmentation accuracy significantly.   
 However, we are still struggling to correct step1_patch_extraction.py python code.   
+
+2) Andrew[3] used the modified Alexnet but we use cifarnet included in tensorflow slim instead.  
+For this reason, our result of segmentation are not so good as caffe version like below.  
+ 
+
+<div>
+<img src="https://user-images.githubusercontent.com/46143444/53543054-8e333600-3b64-11e9-89c5-910007a497a1.png" width="90%"></img>
+</div>
 
 
 
