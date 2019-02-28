@@ -2,6 +2,7 @@
   
 This source is tensorflow version of [1].   
 We used tensorflow-slim and implemented on ubuntu 16.04, python3.5, and tensorflow1.13.0rc1.  
+   
 
 
 
@@ -12,7 +13,7 @@ because converted python code[1] decreased segmentation accuracy significantly.
 However, we are still struggling to correct step1_patch_extraction.py python code.   
 
 2) Andrew[3] used the modified Alexnet but we use cifarnet included in tensorflow slim instead.  
-For this reason, our result of segmentation are not so good as caffe version like below.  
+For this reason, our result of segmentation(middle) are not so good as caffe version(right) like below.  
  
 
 <div>
