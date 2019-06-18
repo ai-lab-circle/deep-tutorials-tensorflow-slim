@@ -1,4 +1,4 @@
-# Nucleui segmentation-tensorflow-slim (in progress)
+# Nucleui segmentation-tensorflow-slim
   
 This source is tensorflow version of [1].   
 We used tensorflow-slim and implemented on ubuntu 16.04, python3.5, and tensorflow1.13.0rc1.  
