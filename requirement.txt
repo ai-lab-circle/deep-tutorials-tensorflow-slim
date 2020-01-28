@@ -5,5 +5,5 @@ ruamel-yaml==0.15.46
 scikit-image==0.14.1
 scikit-learn==0.20.1
 scipy==1.1.0
-tensorflow==1.13.0rc1
+tensorflow==1.15.2
 
